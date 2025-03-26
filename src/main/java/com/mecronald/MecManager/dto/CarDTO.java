@@ -1,29 +1,67 @@
 package com.mecronald.MecManager.dto;
 
-import com.mecronald.MecManager.entities.Carro;
+import com.mecronald.MecManager.entities.Car;
 import lombok.*;
-import org.springframework.beans.BeanUtils;
 
 @Data
 @Builder
 @AllArgsConstructor
-public class CarroDTO {
+public class CarDTO {
 
     private long id;
-    private String placa;
-    private String modelo;
-    private int ano;
-    private String cor;
+    private String licensePlate;
+    private String vehicleModel;
+    private int productionYear;
+    private String color;
 
-    public CarroDTO(Carro entity) {
+    public CarDTO() {
+    }
+
+    public CarDTO(Car entity) {
         this.id = entity.getId();
-        this.placa = entity.getPlaca();
-        this.modelo = entity.getModelo();
-        this.ano = entity.getAno();
-        this.cor = entity.getCor();
+        this.licensePlate = entity.getLicensePlate();
+        this.vehicleModel = entity.getVehicleModel();
+        this.productionYear = entity.getProductionYear();
+        this.color = entity.getColor();
     }
 
-    public CarroDTO() {
+    public long getId() {
+        return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public int getProductionYear() {
+        return productionYear;
+    }
+
+    public void setProductionYear(int productionYear) {
+        this.productionYear = productionYear;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }
