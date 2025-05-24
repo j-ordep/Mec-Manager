@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: bitnami/postgresql
+    container_name: mecmanager-container
+    environment:
+      POSTGRES_DB: mecmanager
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    restart: always
