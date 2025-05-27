@@ -2,6 +2,7 @@ package com.mecmanager.entity;
 
 import com.mecmanager.enums.WorkStatus;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_work_order")
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor

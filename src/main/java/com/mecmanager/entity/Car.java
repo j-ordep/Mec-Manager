@@ -1,6 +1,7 @@
 package com.mecmanager.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_car")
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,7 +35,7 @@ public class Car {
     private String color;
 
     @OneToMany(mappedBy = "car")
-    private List<WorkOrder> workOrders = new ArrayList<>();
+    private List<WorkOrder> workOrders = new ArrayList<>(); // evita nullPointerException
 
     public Car(Long id, String licensePlate, String vehicleModel, int productionYear, String color, List<WorkOrder> workOrders) {
         this.id = id;
