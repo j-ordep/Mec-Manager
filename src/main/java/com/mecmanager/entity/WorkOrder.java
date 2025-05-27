@@ -2,13 +2,19 @@ package com.mecmanager.entity;
 
 import com.mecmanager.enums.WorkStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "tb_work_order")
+@Getter
+@Setter
+@NoArgsConstructor
 public class WorkOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,80 +27,35 @@ public class WorkOrder {
     @Enumerated(EnumType.STRING)
     private WorkStatus status;
 
-    private LocalDateTime dataEntrada;
-    private LocalDateTime dataSaida;
+    private LocalDateTime entryDate;
+    private LocalDateTime exitDate;
 
     @ManyToOne
-    @JoinColumn(name = "id_car")
+    @JoinColumn(name = "car_id")
     private Car car;
 
-    public WorkOrder() {
-    }
 
-    public WorkOrder(Long id, String description, BigDecimal cost, WorkStatus status, LocalDateTime dataEntrada, LocalDateTime dataSaida, Car car) {
+    public WorkOrder(Long id, String description, BigDecimal cost, WorkStatus status, LocalDateTime entryDate, LocalDateTime exitDate, Car car) {
         this.id = id;
         this.description = description;
         this.cost = cost;
         this.status = status;
-        this.dataEntrada = dataEntrada;
-        this.dataSaida = dataSaida;
+        this.entryDate = entryDate;
+        this.exitDate = exitDate;
         this.car = car;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BigDecimal getCost() {
-        return cost;
-    }
-
-    public void setCost(BigDecimal cost) {
-        this.cost = cost;
-    }
-
-    public WorkStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(WorkStatus status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(LocalDateTime dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public LocalDateTime getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(LocalDateTime dataSaida) {
-        this.dataSaida = dataSaida;
-    }
-
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
+    @Override
+    public String toString() {
+        return "WorkOrder{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", cost=" + cost +
+                ", status=" + status +
+                ", entryDate=" + entryDate +
+                ", exitDate=" + exitDate +
+                ", car=" + car +
+                '}';
     }
 
     @Override
