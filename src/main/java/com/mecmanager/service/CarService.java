@@ -32,5 +32,8 @@ public class CarService {
         return carRepository.findByLicensePlate(licensePlate);
     }
 
+    public void deleteCar(Long id) {
+        carRepository.deleteById(id);
+    }
 
 }
