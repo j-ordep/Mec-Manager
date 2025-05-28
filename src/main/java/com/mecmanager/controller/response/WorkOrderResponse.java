@@ -14,5 +14,5 @@ public record WorkOrderResponse(
         WorkStatus status,
         LocalDateTime entryDate,
         LocalDateTime exitDate,
-        Long carId) {
-}
+        Long carId
+) { }
