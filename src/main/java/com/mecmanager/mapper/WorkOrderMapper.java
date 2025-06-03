@@ -1,8 +1,8 @@
 package com.mecmanager.mapper;
 
-import com.mecmanager.controller.request.WorkOrderRequest;
-import com.mecmanager.controller.response.WorkOrderResponse;
-import com.mecmanager.entity.WorkOrder;
+import com.mecmanager.dto.request.WorkOrderRequest;
+import com.mecmanager.dto.response.WorkOrderResponse;
+import com.mecmanager.domain.model.WorkOrder;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

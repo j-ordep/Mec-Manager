@@ -1,4 +1,4 @@
-package com.mecmanager.controller.response;
+package com.mecmanager.dto.response;
 
 import lombok.Builder;
 

@@ -1,7 +1,7 @@
-package com.mecmanager.controller.request;
+package com.mecmanager.dto.request;
 
-import com.mecmanager.entity.Car;
-import com.mecmanager.enums.WorkStatus;
+import com.mecmanager.domain.model.Car;
+import com.mecmanager.domain.enums.WorkStatus;
 
 import java.math.BigDecimal;
 

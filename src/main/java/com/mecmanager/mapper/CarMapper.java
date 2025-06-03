@@ -1,8 +1,8 @@
 package com.mecmanager.mapper;
 
-import com.mecmanager.controller.request.CarRequest;
-import com.mecmanager.controller.response.CarResponse;
-import com.mecmanager.entity.Car;
+import com.mecmanager.dto.request.CarRequest;
+import com.mecmanager.dto.response.CarResponse;
+import com.mecmanager.domain.model.Car;
 import lombok.experimental.UtilityClass;
 
 import java.util.Collections;

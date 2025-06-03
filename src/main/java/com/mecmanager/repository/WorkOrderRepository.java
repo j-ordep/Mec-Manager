@@ -1,6 +1,6 @@
 package com.mecmanager.repository;
 
-import com.mecmanager.entity.WorkOrder;
+import com.mecmanager.domain.model.WorkOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

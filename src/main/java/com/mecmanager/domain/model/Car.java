@@ -1,4 +1,4 @@
-package com.mecmanager.entity;
+package com.mecmanager.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;

@@ -1,6 +1,6 @@
 package com.mecmanager.repository;
 
-import com.mecmanager.entity.Car;
+import com.mecmanager.domain.model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

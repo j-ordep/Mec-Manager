@@ -1,6 +1,6 @@
 package com.mecmanager.controller;
 
-import com.mecmanager.entity.Car;
+import com.mecmanager.domain.model.Car;
 import com.mecmanager.service.CarService;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +33,7 @@ public class CarController {
     }
 
     @GetMapping("{licensePlate}")
-    public Optional<Car> findCarByLicensePlate(@PathVariable String licensePlate) {
+    public Optional<Car> findCarByLicensePlate(@PathVariable String licensePlate) { // Usar RequestParm e utilizar optional no parametro
         return carService.findCarByLicensePlate(licensePlate);
     }
 

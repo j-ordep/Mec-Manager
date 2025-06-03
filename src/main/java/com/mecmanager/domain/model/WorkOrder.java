@@ -1,6 +1,6 @@
-package com.mecmanager.entity;
+package com.mecmanager.domain.model;
 
-import com.mecmanager.enums.WorkStatus;
+import com.mecmanager.domain.enums.WorkStatus;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;

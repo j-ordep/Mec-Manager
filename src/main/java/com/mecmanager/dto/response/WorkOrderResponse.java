@@ -1,6 +1,6 @@
-package com.mecmanager.controller.response;
+package com.mecmanager.dto.response;
 
-import com.mecmanager.enums.WorkStatus;
+import com.mecmanager.domain.enums.WorkStatus;
 import lombok.Builder;
 
 import java.math.BigDecimal;

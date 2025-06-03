@@ -1,4 +1,4 @@
-package com.mecmanager.controller.request;
+package com.mecmanager.dto.request;
 
 
 public record CarRequest(

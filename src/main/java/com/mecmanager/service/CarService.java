@@ -1,6 +1,6 @@
 package com.mecmanager.service;
 
-import com.mecmanager.entity.Car;
+import com.mecmanager.domain.model.Car;
 import com.mecmanager.repository.CarRepository;
 import org.springframework.stereotype.Service;
 

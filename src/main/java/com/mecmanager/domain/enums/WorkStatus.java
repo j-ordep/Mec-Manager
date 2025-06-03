@@ -1,4 +1,4 @@
-package com.mecmanager.enums;
+package com.mecmanager.domain.enums;
 
 public enum WorkStatus {
     PENDING, // aguardando aprovação
