@@ -1,6 +1,9 @@
 package com.mecmanager.service;
 
 import com.mecmanager.domain.model.Car;
+import com.mecmanager.dto.request.CarRequest;
+import com.mecmanager.dto.response.CarResponse;
+import com.mecmanager.mapper.CarMapper;
 import com.mecmanager.repository.CarRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,23 +19,28 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public Car saveCar(Car Car) {
-        return carRepository.save(Car);
+    public CarResponse save(CarRequest carRequest) {
+        if (carRepository.findByLicensePlate(carRequest.licensePlate()).isPresent()) {
+            return null;
+        }
+        Car savedCar = CarMapper.toDomain(carRequest);
+        carRepository.save(savedCar);
+        return CarMapper.toResponse(savedCar);
     }
 
-    public List<Car> findAllCars() {
+    public List<Car> findAll() {
         return carRepository.findAll();
     }
 
-    public Optional<Car> findCarById(Long id) {
+    public Optional<Car> findById(Long id) {
         return carRepository.findById(id);
     }
 
-    public Optional<Car> findCarByLicensePlate(String licensePlate) {
+    public Optional<Car> findByLicensePlate(String licensePlate) {
         return carRepository.findByLicensePlate(licensePlate);
     }
 
-    public void deleteCar(Long id) {
+    public void delete(Long id) {
         carRepository.deleteById(id);
     }
 

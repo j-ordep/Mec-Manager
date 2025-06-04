@@ -11,7 +11,7 @@ import java.util.Optional;
 @UtilityClass
 public class CarMapper {
 
-    public Car toEntity(CarRequest request) {
+    public Car toDomain(CarRequest request) {
         return Car
                 .builder()
                 .licensePlate(request.licensePlate())

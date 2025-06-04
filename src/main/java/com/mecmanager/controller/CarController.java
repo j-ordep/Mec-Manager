@@ -1,6 +1,9 @@
 package com.mecmanager.controller;
 
 import com.mecmanager.domain.model.Car;
+import com.mecmanager.dto.request.CarRequest;
+import com.mecmanager.dto.response.CarResponse;
+import com.mecmanager.mapper.CarMapper;
 import com.mecmanager.service.CarService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,29 +20,31 @@ public class CarController {
         this.carService = carService;
     }
 
+    // todo se a placa ja estiver cadastrada
+
     @PostMapping()
-    public Car save(@RequestBody Car car) {
-        return carService.saveCar(car);
+    public CarResponse save(@RequestBody CarRequest car) {
+        return carService.save(car);
     }
 
     @GetMapping()
-    public List<Car> getAll() {
-        return carService.findAllCars();
+    public List<Car> findAll() {
+        return carService.findAll();
     }
 
     @GetMapping("{id}")
-    public Optional<Car> getById(@PathVariable Long id) {
-        return carService.findCarById(id);
+    public Optional<Car> findById(@PathVariable Long id) {
+        return carService.findById(id);
     }
 
-    @GetMapping("{licensePlate}")
-    public Optional<Car> findCarByLicensePlate(@PathVariable String licensePlate) { // Usar RequestParm e utilizar optional no parametro
-        return carService.findCarByLicensePlate(licensePlate);
+    @GetMapping("/license")
+    public Optional<Car> findByLicensePlate(@RequestParam String licensePlate) {
+        return carService.findByLicensePlate(licensePlate);
     }
 
     @DeleteMapping("{id}")
-    public void deleteCar(@PathVariable Long id) {
-        carService.deleteCar(id);
+    public void delete(@PathVariable Long id) {
+        carService.delete(id);
     }
 
 }
