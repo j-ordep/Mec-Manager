@@ -3,6 +3,7 @@ package com.mecmanager.service;
 import com.mecmanager.domain.model.Car;
 import com.mecmanager.dto.request.CarRequest;
 import com.mecmanager.dto.response.CarResponse;
+import com.mecmanager.exception.DuplicatedLicensePlateException;
 import com.mecmanager.mapper.CarMapper;
 import com.mecmanager.repository.CarRepository;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class CarService {
 
     public CarResponse save(CarRequest carRequest) {
         if (carRepository.findByLicensePlate(carRequest.licensePlate()).isPresent()) {
-            return null;
+            throw new DuplicatedLicensePlateException(carRequest.licensePlate());
         }
         Car savedCar = CarMapper.toDomain(carRequest);
         carRepository.save(savedCar);

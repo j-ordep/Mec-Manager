@@ -3,8 +3,11 @@ package com.mecmanager.controller;
 import com.mecmanager.domain.model.Car;
 import com.mecmanager.dto.request.CarRequest;
 import com.mecmanager.dto.response.CarResponse;
+import com.mecmanager.exception.DuplicatedLicensePlateException;
 import com.mecmanager.mapper.CarMapper;
 import com.mecmanager.service.CarService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,11 +23,17 @@ public class CarController {
         this.carService = carService;
     }
 
-    // todo se a placa ja estiver cadastrada
-
     @PostMapping()
-    public CarResponse save(@RequestBody CarRequest car) {
-        return carService.save(car);
+    public ResponseEntity<?> save(@RequestBody CarRequest car) {
+        try {
+            CarResponse response = carService.save(car);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        } catch (DuplicatedLicensePlateException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unexpected error");
+        }
+
     }
 
     @GetMapping()
